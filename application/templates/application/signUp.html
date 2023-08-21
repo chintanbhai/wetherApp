@@ -1,0 +1,137 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
+  <!-- Style -->
+  {% comment %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .header {
+      background-image: url("{% static 'img/img.jpg' %}"); /* Specify the path to your image */
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+    }
+
+    .content {
+      padding: 20px;
+      margin-top: -100px;
+    }
+
+    .form-container {
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      padding: 30px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      
+    }
+
+    .form-group label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .btn-primary {
+      background-color: #4285f4;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #3367d6;
+    }
+  </style>
+  <title>Registration</title>
+</head>
+
+<body>
+  <div class="header">
+    
+  </div>
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="form-block form-container">
+                <a href="{% url 'index' %}" class="btn btn-outline-dark "><i class="icofont-long-arrow-left"></i></a>
+                <div class="text-center mb-4">
+                  <h1>Registration</h1>
+                </div>
+                <span class="mb-2 text-muted">
+                  {% if msg %}
+                  {{ msg | safe }}
+                  {% endif %}
+                </span>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Confirm Password</label>
+                        {{ form.password2 }}
+                    </div>
+                    <div class="form-group">
+                        <label class="control control--checkbox mb-0">
+                            <span class="caption">Admin</span>
+                            {{ form.is_admin }}
+                            <div class="control__indicator"></div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control control--checkbox mb-0">
+                            <span class="caption">Customer</span>
+                            {{ form.is_customer }}
+                            <div class="control__indicator"></div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control control--checkbox mb-0">
+                            <span class="caption">Employee</span>
+                            {{ form.is_employee }}
+                            <div class="control__indicator"></div>
+                        </label>
+                    </div>
+                    <span class="text-error">{{ form.errors }}</span>
+                    <input type="submit" value="Register" class="btn btn-pill text-white btn-block btn-primary">
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

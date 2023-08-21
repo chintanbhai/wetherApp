@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .call-to-action {
+            margin-top: 20px;
+        }
+
+        .call-to-action a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .call-to-action a:hover {
+            background-color: #3367d6;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Wether Application</h1>
+    </header>
+    <nav>
+        <a href="{% url 'register1' %}">Sign up</a>
+        <a href="{% url 'login' %}">Sign In</a>
+        {% comment %} <a href="{% url 'signUp' %}">signUp Sir</a> {% endcomment %}
+    </nav>
+    <main>
+        <h2>Welcome to our website!</h2>
+        
+        <div class="call-to-action">
+            <a href="{% url 'register1' %}">Get Started</a>
+        </div>
+    </main>
+</body>
+
+</html>
